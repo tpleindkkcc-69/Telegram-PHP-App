@@ -426,7 +426,7 @@ sendMessage($chatId, "
 }
 else{
 sendMessage($chatId, "
-╭╴CARD ==> $lista
+╭╴CARD ==>       $lista
 |STATUS ==> ❌ ERROR ❌
 |RESPONSE ==> Not Listed 
 |BANK ==> $bank
