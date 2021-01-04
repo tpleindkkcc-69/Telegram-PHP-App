@@ -156,7 +156,7 @@ $result = curl_exec($ch);
 
 if(strpos($result, '')){ //PUT RESPONSE OF YOUR SITE FOR LIVE CC
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ✅ LIVE CVV ✅
 |RESPONSE ==> SUCCESSFULLY CHARGED 
 |BANK ==> $bank
@@ -169,7 +169,7 @@ sendMessage($chatId, "
 }
 elseif (strpos($result, "")){
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ✅ LIVE CCN ✅
 |RESPONSE ==> INCORRECT_CVC 
 |BANK ==> $bank
@@ -182,7 +182,7 @@ sendMessage($chatId, "
 }
 elseif (strpos($result, "")){
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ❌ DECLINED ❌
 |RESPONSE ==> DECLINED 
 |BANK ==> $bank
@@ -195,7 +195,7 @@ sendMessage($chatId, "
 }
 elseif (strpos($result, "")){
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ❌ EXPIRED CARD ❌
 |RESPONSE ==> EXPIRED_CARD 
 |BANK ==> $bank
@@ -208,7 +208,7 @@ sendMessage($chatId, "
 }
 elseif (strpos($result, "")){
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ❌ DO NOT HONOR ❌
 |RESPONSE ==> DO_NOT_HONOR 
 |BANK ==> $bank
@@ -221,7 +221,7 @@ sendMessage($chatId, "
 }
 elseif (strpos($result, "")){
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ❌ INCORRECT NUMBER ❌
 |RESPONSE ==> INCORRECT_NUMBER 
 |BANK ==> $bank
@@ -234,7 +234,7 @@ sendMessage($chatId, "
 }
 else{
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ❌ ERROR ❌
 |RESPONSE ==> NOT LISTED 
 |BANK ==> $bank
@@ -335,7 +335,7 @@ $result = curl_exec($ch);
 
 if(strpos($result, '')){ //PUT RESPONSE OF YOUR SITE FOR LIVE CC
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ✅ LIVE CVV ✅
 |RESPONSE ==> [CVV2] : [M]
 |BANK ==> $bank
@@ -348,7 +348,7 @@ sendMessage($chatId, "
 }
 elseif (strpos($result, "")){
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ✅ LIVE CCN ✅
 |RESPONSE ==> Card Issuer Declined CVV => 2010
 |BANK ==> $bank
@@ -361,7 +361,7 @@ sendMessage($chatId, "
 }
 elseif (strpos($result, "")){
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ❌ DECLINED ❌
 |RESPONSE ==> Declined => 2046
 |BANK ==> $bank
@@ -374,7 +374,7 @@ sendMessage($chatId, "
 }
 elseif (strpos($result, "")){
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ❌ EXPIRED CARD ❌
 |RESPONSE ==> Expired Card => 2004
 |BANK ==> $bank
@@ -387,7 +387,7 @@ sendMessage($chatId, "
 }
 elseif (strpos($result, "")){
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ❌ DO NOT HONOR ❌
 |RESPONSE ==> Do Not Honor 
 |BANK ==> $bank
@@ -400,7 +400,7 @@ sendMessage($chatId, "
 }
 elseif (strpos($result, "")){
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ❌ INCORRECT NUMBER ❌
 |RESPONSE ==> Invalid Credit Card Number => 2005
 |BANK ==> $bank
@@ -413,7 +413,7 @@ sendMessage($chatId, "
 }
 elseif (strpos($result, "")){
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ❌ TRANSACTION NOT ALLOWED ❌
 |RESPONSE ==> Transaction Not Allowed => 2015
 |BANK ==> $bank
@@ -426,7 +426,7 @@ sendMessage($chatId, "
 }
 else{
 sendMessage($chatId, "
-╭╴CARD ==> <code>$lista</code>
+╭╴CARD ==> $lista
 |STATUS ==> ❌ ERROR ❌
 |RESPONSE ==> Not Listed 
 |BANK ==> $bank
